@@ -6,13 +6,13 @@
 
 > 1.该系列源码jdk版本为：**1.8.0_171-b11**
 >
-> 2.
+> 2.如有疏漏之处还请指出
 
 #### 二、`ReentrantLock`怎么用？
 
 ##### 1.`ReentrantLock`常用方法
 
-![ReentrantLock](/Users/redscarf/Desktop/ReentrantLock.png)
+![ReentrantLock](https://ws3.sinaimg.cn/large/006tNbRwly1fwa08o7h21j30q212sn1i.jpg)
 
 从上图我们可以看到`ReentrantLock`提供了三个加锁的方法，且都是实现了`Lock`接口得到的，分别是：
 
@@ -53,7 +53,7 @@ public class ReentrantLockTry{
 
 博主看书喜欢先看目录，因为从目录就可以看出来一本书讲的都是什么东西，所以看源码的时候也喜欢先从继承体系、类的结构开始看起，因为这样更能从整体上把握这块知识。所以我们可以先看看`ReentrantLock`的内部结构
 
-![ReentrantLock-structure](/Users/redscarf/Desktop/ReentrantLock-structure.png)
+![ReentrantLock-structure](https://ws4.sinaimg.cn/large/006tNbRwly1fwa08legs9j30wa1p0n4w.jpg)
 
 从上图我们可以看到`ReentrantLock`中有三个内部类，分别为`Sync`、`FairSync`、`NonfairSync`，其中`FairSync`和`NonfairSync`是抽象类Sync的实现。
 
@@ -87,7 +87,7 @@ public class ReentrantLock implements Lock,Serializable{
 
 ###### 2.1 `FairSync`的继承体系
 
-![FairSync](/Users/redscarf/Desktop/FairSync.png)
+![FairSync](https://ws1.sinaimg.cn/large/006tNbRwly1fwa08ltgpij30iq0leab2.jpg)
 
 在这里，最重要的部分就是`AbstractQueuedSynchronizer`(简称AQS)，几乎所有加锁和释放锁的细节都隐藏在在`AQS`中。
 
@@ -95,7 +95,7 @@ public class ReentrantLock implements Lock,Serializable{
 
 `AQS`内部结构如下所示：
 
-![AbstractQueuedSynchronizer](/Users/redscarf/Desktop/AbstractQueuedSynchronizer.png)
+![AbstractQueuedSynchronizer](https://ws2.sinaimg.cn/large/006tNbRwly1fwa08kjx6oj30qo1acdkp.jpg)
 
 
 
@@ -114,7 +114,7 @@ private volatile int state;
 
 `AQS`通过一个名为`CLH`的阻塞队列(***其实就是Node组成的双向链表***)保存等待的线程的，值得注意的是***在阻塞队列中并不包含head节点***，阻塞队列结构如下所示：
 
-![aqs-0](/Users/redscarf/Desktop/aqs-0.png)
+![aqs-0](https://ws3.sinaimg.cn/large/006tNbRwly1fwa08maewbj30ys07swfo.jpg)
 
 
 
