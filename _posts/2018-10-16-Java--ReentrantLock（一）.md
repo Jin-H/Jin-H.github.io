@@ -445,7 +445,7 @@ private void unparkSuccessor(Node node) {
 
 #### 四、参考资料
 
-##### 1.HongJie大神的博客：https://javadoop.com/post/AbstractQueuedSynchronizer
+##### 1.[HongJie大神的博客](https://javadoop.com/post/AbstractQueuedSynchronizer)
 
 ##### 2.jdk源码
 
