@@ -1,3 +1,14 @@
+---
+layout:     post
+title:      Java 并发学习之 volatile
+date:       2018-10-16
+author:     redscarf
+catalog: true
+tags:
+    - Java
+    - 并发
+---
+
 ### Java 并发学习之 volatile
 
 #### 一、volatile的用法
