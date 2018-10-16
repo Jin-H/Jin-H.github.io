@@ -1,13 +1,13 @@
 ---
- layout:     post
- title:      ReentrantLock实现原理
- subtitle:   
- date:       2018-10-16
- author:     redscarf                                            
- header-img: 
- catalog: true                                           
- tags:                                                           
-     - 并发
+layout:     post
+title:      ReentrantLock实现原理
+subtitle:   ReentrantLock与AQS
+date:       2018-10-16
+author:     redscarf                                            
+header-img: 
+catalog: true                                           
+tags:                                                           
+    - 并发
  ---
 
 ### Java 并发包源码笔记——AbstractQueuedSynchronizer的实现之ReentrantLock
