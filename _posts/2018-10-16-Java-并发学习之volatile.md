@@ -10,7 +10,7 @@ tags:
     - 并发
 ---
 
-> Java 并发学习之 volatile
+> Java 并发学习之 **volatile**
 
 #### 一、volatile的用法
 
