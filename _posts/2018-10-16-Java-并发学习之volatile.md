@@ -1,6 +1,7 @@
 ---
 layout:     post
 title:      Java 并发学习之 volatile
+subtitle:   volatile解析
 date:       2018-10-16
 author:     redscarf
 catalog: true
