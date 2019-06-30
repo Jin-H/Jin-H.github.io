@@ -2,11 +2,11 @@
 
 #### 问题简述
 
->  Spring MVC 整合 Mybatis 之后始终无法通过 spring 的 property 注入 basePackage 的值，也就是说 spring 容器无法扫描到 mapper 文件所在的包。
+>  `Spring MVC` 整合 `Mybatis` 之后始终无法通过 `spring` 的 `property` 注入 `basePackage` 的值，也就是说 `spring` 容器无法扫描到 `mapper` 文件所在的包。
 
 ![image-20190630134459229](http://ww4.sinaimg.cn/large/006tNc79ly1g4j4s0x40sj30hg00sjrb.jpg)
 
-无论怎么修改 basePackage的值，都无法注入进去
+无论怎么修改 `basePackage` 的值，都无法注入进去
 
 ![image-20190630134315202](http://ww1.sinaimg.cn/large/006tNc79ly1g4j4q7smpmj317s03wwfp.jpg)
 
@@ -14,17 +14,17 @@
 
 #### 问题分析
 
-##### 1.  spring 解析placeHolder的时候出错了
+##### 1.  `spring` 解析 `placeHolder` 的时候出错了
 
 > 但是尝试别的属性注入都是没问题的，所以这个结论可以推翻
 
-##### 2.  placeHolder解析流程没走到
+##### 2.  `placeHolder` 解析流程没走到
 
-> 如果别的占位符都可以解析，那么只能说明 MapperScannerConfigurer 对象有些特殊，解析流程不太普通
+> 如果别的占位符都可以解析，那么只能说明  `MapperScannerConfigurer` 对象有些特殊，解析流程不太普通
 
-#### debug 流程
+#### `debug` 流程
 
-#####  MapperScannerConfigurer 对象
+#####  `MapperScannerConfigurer` 对象
 
 > 为了简化篇幅，这里只展示部分有必要的代码块了
 
@@ -47,9 +47,9 @@ public class MapperScannerConfigurer implements BeanDefinitionRegistryPostProces
 }
 ```
 
-##### BeanDefinitionRegistryPostProcessor 接口
+##### `BeanDefinitionRegistryPostProcessor` 接口
 
-> 继承自 BeanFactoryPostProcessor
+> 继承自 `BeanFactoryPostProcessor`
 >
 > 用于在初始化之前修改容器中的  bean definition register 
 
@@ -71,11 +71,11 @@ public class MapperScannerConfigurer implements BeanDefinitionRegistryPostProces
 
 ![image-20190630141743332](http://ww1.sinaimg.cn/large/006tNc79ly1g4j5q35g2rj30px0a576z.jpg)
 
-果然，这里会重新更新 basePackage 的值
+果然，这里会重新更新 `basePackage` 的值
 
 #### 验证结果
 
-> 我们多加一行代码，通过 setter 方法注入 MapperScannerConfigurer 对象的 processPropertyPlaceHolders 属性
+> 我们多加一行代码，通过 `setter` 方法注入 `MapperScannerConfigurer `对象的 `processPropertyPlaceHolders` 属性
 
 ![image-20190630134018362](http://ww3.sinaimg.cn/large/006tNc79ly1g4j4n5a72dj3190056gn7.jpg)
 
