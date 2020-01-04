@@ -18,10 +18,7 @@ sidebar-avatar: /img/me.jpg      # use absolute URL, seeing it's used in both `/
 
 # SNS settings
 RSS: false
-# weibo_username:     redscarf
-#zhihu_username:     redscarf
 github_username:    Jin-H
-jianshu_username: ed5fe3b2228d
 
 
 
