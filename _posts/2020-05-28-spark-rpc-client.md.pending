@@ -1,6 +1,6 @@
 ---
 layout: post
-title:      spark rpc client side
+title:      spark rpc client
 subtitle:   初探 spark rpc
 date:       2020-05-28
 author:     redscarf
@@ -26,6 +26,8 @@ tags:
 我们首先看一下 NettyRpcEnv 中的成员变量，这里主要是有个印象，之后介绍具体情况。
 
 ![NettyRpcEnv](../img/spark/spark-rpc.png)
+
+
 
 
 ##### RpcEndpoint
